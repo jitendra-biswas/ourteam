@@ -1,69 +1,138 @@
-import Image from "next/image";
+"use client"
+import TeamCard from '@/app/Components/TeamCard'
 
-export default function Home() {
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import '@/app/globals.css'
+
+// import required modules
+import { Navigation, Pagination, Mousewheel, Keyboard } from 'swiper/modules';
+
+const page = ({data}) => {
+  
+  const teamData = [
+        {
+            "img":"/bibek.png",
+            "name":"Bibek Lama",
+            "role":"director",
+            "about":"Bibek is the visionary founder and CEO of Going Genius Group. With over 16 years of experience in the tech industry, he leads the company's strategic direction and ensures every project delivers exceptional value to clients.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/arjun.png",
+            "name":"Arjun Gautam",
+            "role":"Full Stack Developer",
+            "about":"Arjun is a passionate full stack developer who builds scalable web applications using modern technologies. He specializes in React, Next.js, Node.js, and cloud architecture.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/prakash.png",
+            "name":"Prakash Sapkota",
+            "role":"Full Stack Developer",
+            "about":"Prakash is a skilled full stack developer with expertise in building robust backend systems and responsive frontend interfaces. He loves solving complex problems with clean, maintainable code.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/rohit.png",
+            "name":"Rohit Baral",
+            "role":"Full Stack Developer",
+            "about":"Rohit is a dedicated full stack developer who excels at building performant web applications. He has a keen eye for detail and is always eager to learn emerging technologies.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/subarna.png",
+            "name":"Subarna Ghimire",
+            "role":"Full Stack Developer",
+            "about":"Subarna is a versatile full stack developer who brings creativity and technical precision to every project. He contributes across the entire stack from database design to pixel-perfect UIs.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/jyoti.png",
+            "name":"Jyoti Kunwar",
+            "role":"Full Stack Developer",
+            "about":"Jyoti is a talented full stack developer who builds reliable, user-friendly applications. She combines strong frontend skills with solid backend knowledge to deliver complete solutions.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/sima.png",
+            "name":"Sima Malla",
+            "role":"Full Stack Developer",
+            "about":"Sima is a motivated full stack developer with a passion for building modern web applications. She constantly pushes herself to improve and deliver high-quality work.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/ambika.png",
+            "name":"Ambika Khatiwada",
+            "role":"UI/UX Designer",
+            "about":"Ambika is a creative UI/UX designer who crafts intuitive and visually stunning interfaces. She combines user research with modern design principles to create experiences that delight users.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/anisha.png",
+            "name":"Anisha Khatiwada",
+            "role":"QA Tester",
+            "about":"Anisha is a detail-oriented QA tester who ensures every product meets the highest quality standards. She designs comprehensive test plans and catches bugs before they reach production.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+        {
+            "img":"/kamal.png",
+            "name":"Kamal Jaishi",
+            "role":"Alumni Genius Developer",
+            "about":"Kamal is an enthusiastic full stack developer who brings energy and fresh perspectives to the team. He is a quick learner and contributes effectively across frontend and backend tasks.",
+            "facebook":"",
+            "instagram":"",
+            "linkedin":""
+        },
+    ]
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className='w-full h-screen bg-[#18181B] flex flex-col items-center pt-20 max-md:pt-5 '>
+     <div className='text-center max-md:mt-10'>
+       <h1 className='text-[#F1C50E] uppercase text-3xl font-semibold'>Our Team</h1>
+       <h2 className='text-zinc-200 text-xl'>Meet Our Geniuses</h2>
+     </div>
+     <Swiper
+        cssMode={true}
+        navigation={true}
+        pagination={true}
+        mousewheel={true}
+        keyboard={true}
+        modules={[Navigation, Pagination, Mousewheel, Keyboard]}
+        className="mySwiper w-[60vw] h-[40vh] max-lg:w-[70vw] max-md:w-full max-md:h-full mt-15"
+      >
+        
+            <div className=' w-full mt-15 '>
+        {teamData.map((team:any,idx)=>{
+          return <SwiperSlide className='w-full flex jsutify-between'><TeamCard data={team}/></SwiperSlide>
+        })}
+      </div>
+       
+      
+      </Swiper>
     </div>
-  );
+    
+  )
 }
+
+export default page
